@@ -1,14 +1,13 @@
 package com.postgresdata.postgresdata.model;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data
-@RequiredArgsConstructor
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Enrollment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

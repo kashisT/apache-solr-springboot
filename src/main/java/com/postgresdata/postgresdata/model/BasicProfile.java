@@ -5,7 +5,8 @@ import lombok.*;
 
 @Entity
 @Data
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class BasicProfile {
 

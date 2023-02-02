@@ -38,4 +38,7 @@ public class Certification {
     @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "certified_hashers_summary_ID", referencedColumnName = "id")
     private CertifiedHashersSummary certifiedHashersSummary;
+
+    @OneToMany(mappedBy = "id")
+    private List<Capability> capability;
 }

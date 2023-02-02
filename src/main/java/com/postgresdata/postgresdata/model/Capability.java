@@ -1,15 +1,14 @@
 package com.postgresdata.postgresdata.model;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Data
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Capability {
 
@@ -18,6 +17,9 @@ public class Capability {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "capability_seq")
     private Long id;
     private String name;
-    @ManyToMany(mappedBy = "capability")
-    private List<Certification> certifications;
+
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Certification certification;
+
 }
