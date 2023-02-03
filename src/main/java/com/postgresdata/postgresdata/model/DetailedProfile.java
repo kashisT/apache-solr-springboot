@@ -20,6 +20,6 @@ public class DetailedProfile {
 
     private String delEmail;
 
-    @OneToOne(mappedBy = "id")
+    @OneToOne(mappedBy = "detailedProfile")
     private User user;
 }

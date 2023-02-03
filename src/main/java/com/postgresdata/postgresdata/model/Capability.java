@@ -3,8 +3,6 @@ package com.postgresdata.postgresdata.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Entity
 @Data
 @AllArgsConstructor
@@ -19,7 +17,7 @@ public class Capability {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "certification_id")
     private Certification certification;
 
 }
