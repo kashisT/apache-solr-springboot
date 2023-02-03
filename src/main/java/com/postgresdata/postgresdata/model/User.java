@@ -10,6 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Table(name = "user_table")
 public class User {
     @Id
     @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
@@ -17,12 +18,13 @@ public class User {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "basic_profile_id", referencedColumnName = "id")
     private BasicProfile basicProfile;
 
     @OneToMany(mappedBy = "user")
     private List<CertificateChampion> certificateChampions;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "detailed_profile_id", referencedColumnName = "id")
     private DetailedProfile detailedProfile;
 }
