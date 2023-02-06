@@ -1,5 +1,6 @@
 package com.postgresdata.postgresdata.service;
 
+import com.postgresdata.postgresdata.model.Capability;
 import com.postgresdata.postgresdata.model.CertificateChampion;
 import com.postgresdata.postgresdata.model.Certification;
 import com.postgresdata.postgresdata.model.CertifiedHashersSummary;
@@ -25,6 +26,9 @@ public class CertificateService {
     @Autowired
     CertifiedHashersSummaryService certifiedHashersSummaryService;
 
+    @Autowired
+    CapabilityService capabilityService;
+
     public Certification saveCertificate(Certification certification) {
         certification.setOfferedBy(certificationProviderService.save(certification.getOfferedBy()));
         List<CertificateChampion> champions = new ArrayList<>();
@@ -33,6 +37,11 @@ public class CertificateService {
         }
         certification.setCertificateChampions(champions);
         certifiedHashersSummaryService.saveCertifiedHashersSummary(certification.getCertifiedHashersSummary());
+        List<Capability> capabilities = new ArrayList<>();
+        for (Capability c : certification.getCapability()){
+            capabilities.add(capabilityService.saveCapability(c));
+        }
+        certification.setCapability(capabilities);
         return certificateRepository.save(certification);
     }
 
