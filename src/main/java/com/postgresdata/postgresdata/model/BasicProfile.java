@@ -15,7 +15,6 @@ public class BasicProfile {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "basic_profile_seq")
     private Long id;
     private String name;
+    @Column(columnDefinition = "text")
     private String profilePic;
-    @OneToOne
-    private User user;
 }

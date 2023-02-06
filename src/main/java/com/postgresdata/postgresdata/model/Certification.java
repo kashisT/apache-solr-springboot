@@ -14,6 +14,8 @@ public class Certification {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @Column(columnDefinition = "text")
     private String description;
     private int level;
     private int validity;

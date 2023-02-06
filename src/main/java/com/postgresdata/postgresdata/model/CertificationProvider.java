@@ -21,6 +21,4 @@ public class CertificationProvider {
     private Long id;
     private String name;
     private String imageUrl;
-    @OneToMany(mappedBy = "offeredBy")
-    private List<Certification> certifications;
 }

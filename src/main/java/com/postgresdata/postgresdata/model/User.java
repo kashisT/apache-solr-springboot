@@ -21,10 +21,7 @@ public class User {
     @JoinColumn(name = "basic_profile_id", referencedColumnName = "id")
     private BasicProfile basicProfile;
 
-    @OneToMany(mappedBy = "user")
-    private List<CertificateChampion> certificateChampions;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "detailed_profile_id", referencedColumnName = "id")
-    private DetailedProfile detailedProfile;
+
+
 }
